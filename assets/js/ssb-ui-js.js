@@ -78,6 +78,4 @@ jQuery(function ($) {
 
         });
     }
-
-
 });
