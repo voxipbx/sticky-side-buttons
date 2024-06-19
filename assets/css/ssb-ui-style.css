@@ -1,3 +1,27 @@
+/* Tooltip text */
+.tooltiptext {
+    content: attr(data-tooltip);
+    position: absolute;
+    width: max-content !important;
+    right: 100%;
+    top: 0px;
+    background-color: var(--wp--preset--color--secondary);
+    color: #fff;
+    text-align: center;
+    padding: 0 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+}
+
+/* Show the tooltip text when mouse over the tooltip container */
+#ssb-container ul li:hover span {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
 /* SSB UI Style */
 #ssb-container {
     position: fixed;
@@ -42,7 +66,7 @@
 
 #ssb-container ul li span {
     line-height: 45px;
-    width: 50px;
+    width: 45px;
     text-align: center;
     display: inline-block;
 }
