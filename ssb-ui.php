@@ -94,7 +94,7 @@ class ssb_ui {
                             <li id="ssb_btn_<?php echo $btn_id; ?>">
                                 <header>
                                     <i class="fa fa-caret-down" aria-hidden="true"></i>
-									<?php echo $this->buttons['btns'][ $btn_id ]['btn_text']; ?>
+									<?php echo '<span class="' . $this->buttons['btns'][ $btn_id ]['btn_icon'] . '"></span>&nbsp;' .($this->buttons['btns'][ $btn_id ]['btn_text'] ? $this->buttons['btns'][ $btn_id ]['btn_text'] : '') ?>
                                 </header>
                                 <div class="ssb-btn-body">
                                     <div class="ssb-body-left">
@@ -426,12 +426,12 @@ class ssb_ui {
 						// Buttons loop + ordering
 						foreach ( $this->btns_order AS $btn_key => $btn_id ) {
 							?>
-                            <li id="ssb-btn-<?php echo $btn_id; ?>">
+                            <li id="ssb-btn-<?php echo $btn_id; ?>" data-tooltip="<?php echo $this->buttons['btns'][$btn_id]['btn_text']; ?>">
                                 <p>
                                     <a href="<?php echo $this->buttons['btns'][ $btn_id ]['btn_link']; ?>" <?php echo ( !empty($this->buttons['btns'][ $btn_id ]['open_new_window']) ) ? 'target="_blank"' : ''; ?>><?php
 										echo ( isset( $this->buttons['btns'][ $btn_id ]['btn_icon'] ) && $this->buttons['btns'][ $btn_id ]['btn_icon'] ) ? '<span class="' . $this->buttons['btns'][ $btn_id ]['btn_icon'] . '"></span> ' : '';
 										echo ( isset( $this->buttons['btns'][ $btn_id ]['btn_text'] ) && ( isset( $this->settings['btn_anim'] ) && $this->settings['btn_anim'] != 'icons' ) ) ? __( $this->buttons['btns'][ $btn_id ]['btn_text'], 'sticky-side-buttons' ) : ' &nbsp; ';
-										?></a>
+										?><span class="tooltiptext"><?php echo $this->buttons['btns'][$btn_id]['btn_text']; ?></span></a>
                                 </p>
                             </li>
 							<?php
